@@ -16,5 +16,12 @@ pipeline {
           '''
         }
       }
+      stage ('deploy to tomcat') {
+        steps {
+        script {
+          deploy adapters: [tomcat9(credentialsId: 'b4b62502-1da0-4eb4-b05b-b959fab95af9', path: '', url: 'http://65.2.179.174:8080/')], contextPath: 'pipeline', war: '**/*.war'
+        }
+        }
+      }
   }
 }
