@@ -1,5 +1,8 @@
 pipeline {
   agent any
+    parameters {
+  choice choices: ['make', 'mvn clean package'], description: 'choose your build', name: 'BUILD'
+}
   stages {
     stage ('git clone'){
       steps {
@@ -9,10 +12,10 @@ pipeline {
         '''
       }
     }
-      stage ('Build with maven'){
+      stage ('parameter'){
         steps {
           sh '''
-          mvn clean package
+          $ {BUILD}
           '''
         }
       } 
