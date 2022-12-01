@@ -12,7 +12,7 @@ pipeline {
         '''
       }
     }
-      stage ('parameter'){
+      stage ('parameter') {
         steps {
           sh '''
           ${BUILD}
