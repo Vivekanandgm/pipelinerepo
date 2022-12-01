@@ -15,7 +15,7 @@ pipeline {
       stage ('parameter'){
         steps {
           sh '''
-          $ {BUILD}
+          ${BUILD}
           '''
         }
       } 
