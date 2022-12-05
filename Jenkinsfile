@@ -5,7 +5,7 @@ pipeline {
 }
   stages {
     stage ('git clone'){
-      agent { label 'jenkins'}
+      agent { label 'slave001'}
       steps {
          git branch: 'master', credentialsId: 'dba4200a-8fce-417d-a08d-78ce042c98af', url: 'https://github.com/Vivekanandgm/pipelinerepo.git'
         sh '''
@@ -14,7 +14,7 @@ pipeline {
       }
     }
       stage ('parameter') {
-        agent { label 'jenkins'}
+        agent { label 'slave001'}
         steps {
           sh '''
           ${BUILD}
